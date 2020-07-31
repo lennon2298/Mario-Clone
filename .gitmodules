@@ -1,6 +1,6 @@
-[submodule "TryOut/vendor/glfw"]
-	path = TryOut/vendor/glfw
-	url = git@github.com:lennon2298/glfw.git
-[submodule "TryOut/vendor/glm"]
-	path = TryOut/vendor/glm
+[submodule "Mario-Clone/vendor/glfw"]
+	path = Mario-Clone/vendor/glfw
+	url = https://github.com/lennon2298/glfw.git
+[submodule "Mario-Clone/vendor/glm"]
+	path = Mario-Clone/vendor/glm
 	url = https://github.com/g-truc/glm.git

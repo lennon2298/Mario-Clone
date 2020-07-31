@@ -1,8 +1,8 @@
-workspace "TryOut"
+workspace "Mario-Clone"
 
     architecture "x64"
     filter "system:windows"
-        startproject "TryOut"
+        startproject "Mario-Clone"
 
     configurations 
     {
@@ -14,18 +14,18 @@ workspace "TryOut"
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
-IncludeDir["GLFW"] = "TryOut/vendor/glfw/include"
-IncludeDir["Glad"] = "TryOut/vendor/glad/include"
-IncludeDir["glm"] = "TryOut/vendor/glm"
-IncludeDir["stb_image"] = "TryOut/vendor/stb/include"
+IncludeDir["GLFW"] = "Mario-Clone/vendor/glfw/include"
+IncludeDir["Glad"] = "Mario-Clone/vendor/glad/include"
+IncludeDir["glm"] = "Mario-Clone/vendor/glm"
+IncludeDir["stb_image"] = "Mario-Clone/vendor/stb/include"
 
 group "Dependencies"
-    include "TryOut/vendor/glfw"
-    include "TryOut/vendor/glad"
+    include "Mario-Clone/vendor/glfw"
+    include "Mario-Clone/vendor/glad"
 group ""
 
-project "TryOut"
-    location "TryOut"
+project "Mario-Clone"
+    location "Mario-Clone"
     kind "ConsoleApp"
     language "C++"
 
