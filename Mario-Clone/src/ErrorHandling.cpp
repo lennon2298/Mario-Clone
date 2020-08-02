@@ -9,6 +9,7 @@ void GLClearError() {
 bool GLLogCall(const char* func, const char* file, int line) {
 	while (GLenum error = glGetError()) {
 		std::cout << "OpenGL Error :" << error << " " << func << " " << file << "Found at line " << line << std::endl;
+		return false;
 	}
-	return -1;
+	return true;
 }
