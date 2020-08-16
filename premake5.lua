@@ -1,8 +1,6 @@
 workspace "Mario-Clone"
 
     architecture "x64"
-    filter "system:windows"
-        startproject "Mario-Clone"
 
     configurations 
     {
@@ -10,6 +8,9 @@ workspace "Mario-Clone"
         "Release",
         "Dist"
     }
+
+    filter "system:windows"
+        startproject "Mario-Clone"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
@@ -51,13 +52,6 @@ project "Mario-Clone"
 		"%{IncludeDir.stb_image}"
     }
 
-    links
-    {
-        "GLFW",
-        "Glad",
-        "opengl32.lib"
-    }
-
     filter "system:windows"
         cppdialect "C++17"
         staticruntime "On"
@@ -69,6 +63,35 @@ project "Mario-Clone"
             "GE_PLATFORM_WINDOWS"
         }
 
+        postbuildcommands
+        {
+            ("{COPY} ./Resources  ../bin/" .. outputdir .. "/%{prj.name}/Resources")
+        }
+
+        links
+        {
+            "GLFW",
+            "Glad",
+            "opengl32.lib"
+        }
+
+    filter "system:linux"
+        cppdialect "C++17"
+        staticruntime "On"
+        systemversion "latest"
+
+        links
+        {
+            "GLFW",
+            "Glad",
+            "GL",
+            "X11",
+            "pthread",
+            "Xrandr",
+            "Xi",
+            "dl"
+        }
+        
         postbuildcommands
         {
             ("{COPY} ./Resources  ../bin/" .. outputdir .. "/%{prj.name}/Resources")
