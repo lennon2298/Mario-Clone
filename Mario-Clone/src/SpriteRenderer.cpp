@@ -56,6 +56,8 @@ void SpriteRenderer::DrawInstanced(unsigned int instanced, glm::vec4& translatio
 	m_Shader.GetUniform1i("u_Texture[0]", 0);
 	ResourceManager::GetTexture("block").Bind(1);
 	m_Shader.GetUniform1i("u_Texture[1]", 1);
+	ResourceManager::GetTexture("block_brick").Bind(2);
+	m_Shader.GetUniform1i("u_Texture[2]", 2);
 	glm::mat4 model = glm::mat4(1.0f);
 	model = glm::scale(model, glm::vec3(size, 1.0f));
 

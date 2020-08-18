@@ -13,6 +13,8 @@ public:
 	float       m_Rotation;
 	bool        m_IsSolid;
 	bool        m_Destroyed;
+	bool		m_Stuck;
+	bool		m_MovableForward, m_MovableBack;
 
 	Texture m_Sprite;
 
@@ -27,7 +29,8 @@ public:
 	void Destroy();
 
 	float GetPosition();
-	void UpdateVelocity(float x);
+	void UpdateVelocity(float x, float y = 0);
+	void Move(float dt);
 
 	float GetSize();
 };

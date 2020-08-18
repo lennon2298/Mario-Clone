@@ -15,7 +15,7 @@ typedef std::tuple<bool, Direction, glm::vec2> Collision;
 
 class CollisionControl {
 public:
-	static Collision CheckCollisions(BallObject& one, GameObject& two);
+	static Collision CheckCollisions(GameObject& one, GameObject& two);
 
 	static Direction VectorDirection(glm::vec2 target);
 };

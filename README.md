@@ -1,8 +1,8 @@
-# TryOut
-Clone of Atari Breakout Game
+# Mario-Clone
+Clone of Mario Game
 
 ## General info
-This project is a simple clone of the legendary game Breakout, made using OpenGL.
+This project is a simple clone of the game Mario, made using OpenGL.
 	
 ## Technologies/Libraries
 Project is created with:
@@ -19,7 +19,7 @@ To run this project:
 Clone the repo
 
 ```bash
-git clone --recurse-submodules https://github.com/lennon2298/TryOut
+git clone --recurse-submodules https://github.com/lennon2298/Mario-Clone
 ```
 
 Remember to add `--recurse-submodules` to clone the submodules as well.

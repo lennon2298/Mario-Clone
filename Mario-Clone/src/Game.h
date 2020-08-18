@@ -26,6 +26,8 @@ private:
 	GameState m_State;
 	std::vector<GameLevel> Levels;
 	unsigned int level;
+	glm::mat4 m_Projection;
+	float m_WindowLower, m_WindowUpper;
 public:
 	Game(unsigned int width, unsigned int height);
 	~Game();

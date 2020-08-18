@@ -1,9 +1,9 @@
 #include "CollisionControl.h"
 #include <glad/glad.h>
 
-Collision CollisionControl::CheckCollisions(BallObject& one, GameObject& two)
+Collision CollisionControl::CheckCollisions(GameObject& one, GameObject& two)
 {
-	glm::vec2 center(one.m_Position + one.m_Radius);
+	glm::vec2 center(one.m_Position + (one.m_Size / 2.0f));
 
 	glm::vec2 aabb_half_extents(
 		two.m_Size.x / 2, two.m_Size.y / 2
@@ -21,8 +21,17 @@ Collision CollisionControl::CheckCollisions(BallObject& one, GameObject& two)
 	glm::vec2 closest = aabb_center + clamped;
 	difference = closest - center;
 
-	if (glm::length(difference) < one.m_Radius) {
-		return std::make_tuple(true, VectorDirection(difference), difference);
+	Direction dir = VectorDirection(difference);
+
+	if (dir == Direction::DOWN || dir == Direction::UP) {
+		if (glm::length(difference) < (one.m_Size.y/2.0f)) {
+			return std::make_tuple(true, dir, difference);
+		}
+	}
+	else if (dir == Direction::LEFT || dir == Direction::RIGHT) {
+		if (glm::length(difference) < (one.m_Size.x / 2.0f)) {
+			return std::make_tuple(true, dir, difference);
+		}
 	}
 	else {
 		return std::make_tuple(false, Direction::UP, glm::vec2(0.0f, 0.0f));

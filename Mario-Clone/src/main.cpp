@@ -45,6 +45,7 @@ int main() {
 		return -1;
 	}
 
+	glfwSetWindowAspectRatio(window, 8, 6);
 	glViewport(0, 0, screenWidth, screenHeight);
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -67,7 +68,7 @@ int main() {
 
 		TryOut.Update(deltaTime);
 
-		//glClearColor(0.1f, 0.5f, 0.2f, 1.0f);
+		glClearColor(0.015f, 0.611f, 0.847f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		TryOut.Render();
@@ -100,4 +101,5 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
 	glViewport(0, 0, width, height);
+	glfwSetWindowAspectRatio(window, 8, 6);
 }

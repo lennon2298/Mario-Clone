@@ -4,7 +4,7 @@ in float texIndex;
 in vec3 Color;
 out vec4 color;
 
-uniform sampler2D u_Texture[2];
+uniform sampler2D u_Texture[3];
 uniform vec3 u_SpriteColor;
 
 void main()

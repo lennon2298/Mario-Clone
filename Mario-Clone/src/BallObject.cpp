@@ -11,22 +11,22 @@ BallObject::BallObject(glm::vec2 pos, float radius, glm::vec2 velocity, Texture 
 	
 }
 
-glm::vec2 BallObject::Move(float dt, unsigned int window_width)
+glm::vec2 BallObject::Move(float dt, float windowLower, float windowUpper)
 {
 	if (!m_Stuck)
 	{
 		// move the ball
 		this->m_Position += this->m_Velocity * dt;
 		// check if outside window bounds; if so, reverse velocity and restore at correct position
-		if (this->m_Position.x <= 0.0f)
+		if (this->m_Position.x <= windowLower)
 		{
 			this->m_Velocity.x = -this->m_Velocity.x;
-			this->m_Position.x = 0.0f;
+			this->m_Position.x = windowLower;
 		}
-		else if (this->m_Position.x + this->m_Size.x >= window_width)
+		else if (this->m_Position.x + this->m_Size.x >= windowUpper)
 		{
 			this->m_Velocity.x = -this->m_Velocity.x;
-			this->m_Position.x = window_width - this->m_Size.x;
+			this->m_Position.x = windowUpper - this->m_Size.x;
 		}
 		if (this->m_Position.y <= 0.0f)
 		{
